@@ -17,10 +17,6 @@ public enum FunctionType {
         this.name = name;
     }
 
-    public char getLabel() {
-        return label;
-    }
-
     public static void validateLabel(char label) {
         for (FunctionType value : values()) {
             if (value.label == label) {
@@ -30,9 +26,19 @@ public enum FunctionType {
         throw new IllegalArgumentException("[ERROR] 입력=은 위 기능 메뉴중 선택해주세요");
     }
 
+    public static FunctionType getTypeByLabel(char label) {
+        for (FunctionType functionType : values()) {
+            if (label == functionType.label) {
+                return functionType;
+            }
+        }
+        return null;
+    }
+
     public static String showFunction() {
         return Arrays.stream(values())
                 .map(value -> value.label + ". " + value.name)
                 .collect(Collectors.joining("\n"));
     }
+
 }
