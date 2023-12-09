@@ -7,7 +7,7 @@ public enum Level {
     LEVEL4("레벨4"),
     LEVEL5("레벨5");
 
-    private final String level;
+    public final String level;
 
     Level(String level) {
 
@@ -19,6 +19,6 @@ public enum Level {
             if (input.equals(level.level))
                 return level;
         }
-        throw new IllegalArgumentException(ErrorMessage.INPUT_MATCHING_INFO_LEVEL_INVALID);
+        throw new IllegalArgumentException(ErrorMessage.INPUT_MATCHING_INFO_INVALID);
     }
 }

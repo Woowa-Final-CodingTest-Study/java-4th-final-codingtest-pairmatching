@@ -15,7 +15,7 @@ public class OutputMessage {
     public static final String LINE_SEPARATOR = "#############################################";
     public static final String WORD_VERTICAL_SEPARATOR = " | ";
     public static final String COURSE_FORMAT = COURSE + ": %s";
-    public static final String LEVEL_FORMAT = "  - %s: ";
+    public static final String LEVEL_FORMAT = "  - %s: %s";
 
     public static final String[] MISSION_INFO_EXAMPLE = {
             COURSE + ", " + LEVEL + "," + MISSION + "을 선택하세요.",

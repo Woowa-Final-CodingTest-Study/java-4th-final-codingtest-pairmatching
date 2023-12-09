@@ -4,14 +4,15 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public enum Course {
-    BACKEND("백엔드"),
-    FRONTEND("프론트엔드");
+    BACKEND("백엔드", FilePath.BACKEND_CREW),
+    FRONTEND("프론트엔드", FilePath.FRONTEND_CREW);
 
     private final String name;
+    public final String filePath;
 
-    Course(String name) {
-
+    Course(String name, String filePath) {
         this.name = name;
+        this.filePath = filePath;
     }
 
     public static String toStrings() {
@@ -25,6 +26,6 @@ public enum Course {
             if (input.equals(course.name))
                 return course;
         }
-        throw new IllegalArgumentException(ErrorMessage.INPUT_MATCHING_INFO_COURSE_INVALID);
+        throw new IllegalArgumentException(ErrorMessage.INPUT_MATCHING_INFO_INVALID);
     }
 }

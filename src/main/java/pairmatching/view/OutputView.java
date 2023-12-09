@@ -4,8 +4,8 @@ import static pairmatching.constant.Literal.MISSION;
 
 import pairmatching.constant.Course;
 import pairmatching.constant.Level;
-import pairmatching.model.MissionInfo;
 import pairmatching.constant.OutputMessage;
+import pairmatching.model.Mission;
 
 public class OutputView {
     private static OutputView outputView;
@@ -43,7 +43,7 @@ public class OutputView {
         printf(OutputMessage.COURSE_FORMAT, Course.toStrings());
         println(MISSION + ":");
         for (Level level : Level.values()) {
-            printf(OutputMessage.LEVEL_FORMAT, MissionInfo.toStringsOf(level));
+            printf(OutputMessage.LEVEL_FORMAT, level.level, Mission.missionNamesOf(level));
             println();
         }
         println(OutputMessage.LINE_SEPARATOR);

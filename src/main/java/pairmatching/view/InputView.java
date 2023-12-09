@@ -5,7 +5,9 @@ import static pairmatching.constant.Numeric.MISSION_INFO_LENGTH;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import pairmatching.constant.Course;
 import pairmatching.constant.ErrorMessage;
+import pairmatching.constant.Level;
 import pairmatching.constant.Literal;
 import pairmatching.constant.WorkType;
 import pairmatching.model.Mission;
@@ -39,10 +41,22 @@ public class InputView {
     }
 
     public Mission readMissionInfo() {
-        String input = Console.readLine();
-        List<String> inputs = Arrays.asList(input.split(","));
-        validateMissionInfoLength(inputs);
-        return new Mission(inputs);
+        while (true) {
+            try {
+                String input = Console.readLine();
+                input = input.replace(" ", "");
+                List<String> inputs = Arrays.asList(input.split(","));
+                validateMissionInfoLength(inputs);
+
+                Course course = Course.of(inputs.get(0));
+                Level level = Level.of(inputs.get(1));
+                String missionName = inputs.get(2);
+
+                return Mission.get(course, level, missionName);
+            } catch (IllegalArgumentException e) {
+                printError(e);
+            }
+        }
     }
 
     private void validateMissionInfoLength(List<String> inputs) {
@@ -61,5 +75,4 @@ public class InputView {
         }
         throw new IllegalArgumentException(ErrorMessage.INPUT_MATCH_AGAIN_INVALID);
     }
-
 }
