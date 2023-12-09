@@ -5,13 +5,10 @@ import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class PairMatching {
-    InputView inputView = new InputView();
-    OutputView outputView = new OutputView();
-
     public void run() {
         FunctionType functionType;
         do {
-            outputView.requestFunction(FunctionType.showFunction());
+            OutputView.requestFunction(FunctionType.showFunction());
             functionType = FunctionType.getTypeByLabel(enrollFunctionLabel());
             runFunction(functionType);
 
@@ -20,7 +17,7 @@ public class PairMatching {
 
     private char enrollFunctionLabel() {
         try {
-            char functionType = inputView.readFunctionType();
+            char functionType = InputView.readFunctionType();
             FunctionType.validateLabel(functionType);
             return functionType;
         } catch (IllegalArgumentException exception) {
