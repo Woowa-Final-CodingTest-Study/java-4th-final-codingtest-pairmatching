@@ -1,16 +1,17 @@
 package pairmatching.crew;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class FrontendCrew {
-    private List<String> frontEndCrewNames;
+    private List<String> frontendCrewNames;
 
-    public FrontendCrew(List<String> frontEndCrewNames) {
-        this.frontEndCrewNames = frontEndCrewNames;
-        System.out.println(frontEndCrewNames);
+    public FrontendCrew(List<String> frontendCrewNames) {
+        this.frontendCrewNames = frontendCrewNames;
     }
 
     public List<String> getFrontendCrewNames() {
-        return frontEndCrewNames;
+        List<String> shuffle = Randoms.shuffle(frontendCrewNames);
+        return frontendCrewNames;
     }
 }
