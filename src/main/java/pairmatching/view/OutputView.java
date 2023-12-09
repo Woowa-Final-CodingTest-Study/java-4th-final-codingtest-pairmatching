@@ -1,5 +1,10 @@
 package pairmatching.view;
 
+import static pairmatching.constant.Literal.MISSION;
+
+import pairmatching.constant.Course;
+import pairmatching.constant.Level;
+import pairmatching.model.MissionInfo;
 import pairmatching.constant.OutputMessage;
 
 public class OutputView {
@@ -31,5 +36,22 @@ public class OutputView {
         for (String message : messages) {
             println(message);
         }
+    }
+
+    public void printMissionInfo() {
+        println(OutputMessage.LINE_SEPARATOR);
+        printf(OutputMessage.COURSE_FORMAT, Course.toStrings());
+        println(MISSION + ":");
+        for (Level level : Level.values()) {
+            printf(OutputMessage.LEVEL_FORMAT, MissionInfo.toStringsOf(level));
+            println();
+        }
+        println(OutputMessage.LINE_SEPARATOR);
+        println(OutputMessage.MISSION_INFO_EXAMPLE);
+    }
+
+    private void printf(String message, String... args) {
+        System.out.printf(message, args);
+        println();
     }
 }
