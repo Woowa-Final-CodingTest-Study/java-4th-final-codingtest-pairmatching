@@ -6,7 +6,7 @@ import pairmatching.constant.SystemMessage;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
-public class MainController {
+public class MainController implements Controller {
 
     public static final String END = "Q";
     private final Map<String, Controller> controllers = new HashMap<>();
@@ -18,10 +18,11 @@ public class MainController {
         controllers.put("1", new PairMatchingController());
         controllers.put("2", new PairRetrievingController());
         controllers.put("3", new PairInitializingController());
-        controllers.put("4", new PairEndController());
+        controllers.put("Q", new PairEndController());
     }
 
-    public void run() {
+    @Override
+    public void process() {
         MainController mainController = new MainController();
 
         String option = "0";

@@ -4,7 +4,7 @@ public enum MenuOption {
     MATCHING("1"),
     RETRIEVING("2"),
     INITIALIZING("3"),
-    END("4");
+    END("Q");
 
     private final String option;
 

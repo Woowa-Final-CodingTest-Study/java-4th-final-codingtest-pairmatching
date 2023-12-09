@@ -6,9 +6,9 @@ public class SystemMessage {
             + "1. 페어 매칭\n"
             + "2. 페어 조회\n"
             + "3. 페어 초기화\n"
-            + "Q. 종료\n";
+            + "Q. 종료";
 
-    public static final String SELECTION_BOARD = "#############################################\n"
+    public static final String SELECTION_BOARD = "\n#############################################\n"
             + "과정: 백엔드 | 프론트엔드\n"
             + "미션:\n"
             + "  - 레벨1: 자동차경주 | 로또 | 숫자야구게임\n"
