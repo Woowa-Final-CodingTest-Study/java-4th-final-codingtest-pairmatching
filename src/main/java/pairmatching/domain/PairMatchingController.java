@@ -1,5 +1,6 @@
 package pairmatching.domain;
 
+import static pairmatching.constants.ProgressConstants.QUIT;
 import static pairmatching.view.InputView.chooseFunction;
 import static pairmatching.view.OutputView.printErrorMessage;
 
@@ -17,6 +18,9 @@ public class PairMatchingController {
         InputPeople();
         while (true) {
             String choice = InputChoice();
+            if (choice.equals(QUIT.getConstName())) {
+                break;
+            }
         }
     }
 
