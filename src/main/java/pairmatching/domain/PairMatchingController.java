@@ -1,7 +1,9 @@
 package pairmatching.domain;
 
+import static pairmatching.constants.ErrorMessage.NO_MATCHING_ERROR;
 import static pairmatching.constants.ProgressConstants.NO_RETRY;
 import static pairmatching.constants.ProgressConstants.PAIR_MATCHING;
+import static pairmatching.constants.ProgressConstants.PAIR_SEARCH;
 import static pairmatching.constants.ProgressConstants.QUIT;
 import static pairmatching.constants.ProgressConstants.RETRY;
 import static pairmatching.validator.InputCourseValidator.validateInputCourse;
@@ -32,6 +34,9 @@ public class PairMatchingController {
             }
             if (choice.equals(PAIR_MATCHING.getConstName())) {
                 pairMatching();
+            }
+            if (choice.equals(PAIR_SEARCH.getConstName())) {
+                showMatchingHistory();
             }
         }
     }
@@ -120,5 +125,20 @@ public class PairMatchingController {
         }
     }
 
+    private void showMatchingHistory() {
+        Course course = InputCourse();
+        boolean matchingHistoryByCourse = matchingService.findMatchingHistoryByCourse(course);
 
+        try {
+            if (matchingHistoryByCourse) {
+                OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
+            } else {
+                throw new IllegalArgumentException(NO_MATCHING_ERROR.getMessage());
+            }
+        }  catch (IllegalArgumentException e) {
+            printErrorMessage(e.getMessage());
+        }
+    }
+
+    private void c
 }
