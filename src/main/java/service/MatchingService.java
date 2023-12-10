@@ -53,9 +53,9 @@ public class MatchingService {
         if (position.equals(FRONTEND)) {
             frontendMatching(course);
         }
-//        if (position.equals(BACKEND)) {
-//            backendMatching(course);
-//        }
+        if (position.equals(BACKEND)) {
+            backendMatching(course);
+        }
     }
 
     private void frontendMatching(Course course) {
@@ -68,6 +68,20 @@ public class MatchingService {
             pairs.clear();
             List<String> frontend = frontendRepository.getFrontend();
             pairs = matching(frontend);
+        } while (isMatched(course, pairs));
+        matchingHistoryRepository.save(new MatchingHistory(course, pairs));
+    }
+
+    private void backendMatching(Course course) {
+        List<Pair> pairs = new ArrayList<>();
+        int count = ZERO;
+        do {
+            if ((count++) == MAX_MATCHING_COUNT) {
+                throw new IllegalArgumentException(MATCHING_ERROR.getMessage());
+            }
+            pairs.clear();
+            List<String> backend = backendRepository.getBackend();
+            pairs = matching(backend);
         } while (isMatched(course, pairs));
         matchingHistoryRepository.save(new MatchingHistory(course, pairs));
     }
@@ -98,17 +112,24 @@ public class MatchingService {
     }
 
     private boolean isSamePair(List<Pair> pairs, List<Pair> pairHistory) {
-        return pairHistory.stream()
-                .anyMatch(storedPair -> pairs.stream()
-                        .anyMatch(pair -> isSameCrews(storedPair.getCrews(), pair.getCrews())));
+        for (Pair storedPair : pairHistory) {
+            for (Pair currentPair : pairs) {
+                if (isSameCrews(storedPair.getCrews(), currentPair.getCrews())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private boolean isSameCrews(List<String> crewsHistory, List<String> crews) {
-        long count = crewsHistory.stream()
-                .filter(crews::contains)
-                .count();
+        long count = 0;
+        for (String crew : crewsHistory) {
+            if (crews.contains(crew)) {
+                count++;
+            }
+        }
 
         return count == MIN_PAIR_COUNT || count == MAX_PAIR_COUNT;
     }
-
 }

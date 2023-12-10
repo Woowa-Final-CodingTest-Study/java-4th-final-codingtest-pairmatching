@@ -8,6 +8,7 @@ import static pairmatching.view.OutputView.printErrorMessage;
 
 import pairmatching.validator.InputChoiceValidator;
 import pairmatching.view.InputView;
+import pairmatching.view.OutputView;
 import service.MatchingService;
 
 public class PairMatchingController {
@@ -49,7 +50,6 @@ public class PairMatchingController {
         // Course 등록 완료!
 
         chooseCourse(course);
-
     }
 
     private Course InputCourse() {
@@ -76,6 +76,10 @@ public class PairMatchingController {
             printErrorMessage(e.getMessage());
         }
     }
+
+//    private void showPairMatchingResult(Course course) {
+//        OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
+//    }
 
 
 }
