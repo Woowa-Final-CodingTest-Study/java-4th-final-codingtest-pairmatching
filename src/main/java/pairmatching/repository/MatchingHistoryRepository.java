@@ -40,4 +40,8 @@ public class MatchingHistoryRepository {
         }
         return findMatchingHistories;
     }
+
+    public void clearMatchingHistory() {
+        matchingHistories.clear();
+    }
 }

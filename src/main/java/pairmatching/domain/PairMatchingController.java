@@ -1,9 +1,14 @@
 package pairmatching.domain;
 
+import static pairmatching.constants.ProgressConstants.NO_RETRY;
 import static pairmatching.constants.ProgressConstants.PAIR_MATCHING;
 import static pairmatching.constants.ProgressConstants.QUIT;
+import static pairmatching.constants.ProgressConstants.RETRY;
 import static pairmatching.validator.InputCourseValidator.validateInputCourse;
+import static pairmatching.validator.InputRetryValidator.validateInputRetry;
 import static pairmatching.view.InputView.chooseFunction;
+import static pairmatching.view.InputView.chooseRetryCourse;
+import static pairmatching.view.InputView.inputRetryCheck;
 import static pairmatching.view.OutputView.printErrorMessage;
 
 import pairmatching.validator.InputChoiceValidator;
@@ -79,6 +84,40 @@ public class PairMatchingController {
 
     private void showPairMatchingResult(Course course) {
         OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
+    }
+
+    private void processRetryCourse(MatchingService matchingService, Course course) {
+        while (true) {
+            try {
+                String inputRetry = validateInputRetry(inputRetryCheck());
+                if (inputRetry.equals(RETRY.getConstName())) {
+                    matchingService.updatePairMatching(course);
+                    showPairMatchingResult(course);
+                    break;
+                }
+                if (inputRetry.equals(NO_RETRY.getConstName())) {
+                    retryCourse();
+                    break;
+                }
+            } catch (IllegalArgumentException e) {
+                printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void retryCourse() {
+        Course course = InputRetryCourse();
+        chooseCourse(course);
+    }
+
+    private Course InputRetryCourse() {
+        while(true) {
+            try {
+                return validateInputCourse(chooseRetryCourse());
+            } catch (IllegalArgumentException e) {
+                printErrorMessage(e.getMessage());
+            }
+        }
     }
 
 

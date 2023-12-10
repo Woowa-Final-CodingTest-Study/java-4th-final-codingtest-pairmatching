@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 
 import static pairmatching.constants.ProgressMessage.CHOOSE_COURSE;
 import static pairmatching.constants.ProgressMessage.COURSE_INFO;
+import static pairmatching.constants.ProgressMessage.RETRY_COURSE_CHECK;
 import static pairmatching.constants.ProgressMessage.START_CHOICE;
 import static pairmatching.view.common.Printer.printer;
 
@@ -19,4 +20,16 @@ public class InputView {
         printer(CHOOSE_COURSE.getMessage());
         return Console.readLine();
     }
+
+    public static String chooseRetryCourse(){
+        printer(CHOOSE_COURSE.getMessage());
+        return Console.readLine();
+    }
+
+    public static String inputRetryCheck() {
+        printer(RETRY_COURSE_CHECK.getMessage());
+        return Console.readLine();
+    }
+
+
 }
