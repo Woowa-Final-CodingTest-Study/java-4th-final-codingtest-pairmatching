@@ -1,10 +1,13 @@
 package pairmatching;
 
-import pairmatching.controller.FileController;
+
+import pairmatching.domain.PairMatchingController;
+import service.MatchingService;
 
 public class Application {
     public static void main(String[] args) {
-        FileController controller = new FileController();
-        controller.run();
+        MatchingService matchingService = new MatchingService();
+        PairMatchingController pairMatchingController = new PairMatchingController(matchingService);
+        pairMatchingController.run();
     }
 }
