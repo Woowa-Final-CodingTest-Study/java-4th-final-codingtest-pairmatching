@@ -77,9 +77,9 @@ public class PairMatchingController {
         }
     }
 
-//    private void showPairMatchingResult(Course course) {
-//        OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
-//    }
+    private void showPairMatchingResult(Course course) {
+        OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
+    }
 
 
 }

@@ -129,7 +129,11 @@ public class MatchingService {
                 count++;
             }
         }
-
         return count == MIN_PAIR_COUNT || count == MAX_PAIR_COUNT;
+    }
+
+    public List<Pair> pairMatchingResult(Course course) {
+        MatchingHistory matchingHistoryByCourse = matchingHistoryRepository.findMatchingHistoryByCourse(course);
+        return matchingHistoryByCourse.getPair();
     }
 }
