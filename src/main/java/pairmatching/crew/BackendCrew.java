@@ -3,13 +3,14 @@ package pairmatching.crew;
 import java.util.List;
 
 public class BackendCrew {
-    private List<String> BackendCrewNames;
+    private List<String> backendCrewNames;
 
-    public BackendCrew(List<String> BackendCrewNames) {
-        this.BackendCrewNames = BackendCrewNames;
+    public BackendCrew(List<String> backendCrewNames) {
+        this.backendCrewNames = backendCrewNames;
+        System.out.println(backendCrewNames);
     }
 
     public List<String> getBackendCrewNames() {
-        return BackendCrewNames;
+        return backendCrewNames;
     }
 }

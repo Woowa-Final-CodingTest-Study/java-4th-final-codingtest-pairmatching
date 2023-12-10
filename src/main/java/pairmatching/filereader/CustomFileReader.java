@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrontendFileReader {
+public class CustomFileReader {
     public static List<String> readNamesFromFile(String filePath) {
         List<String> names = new ArrayList<>();
 
