@@ -1,8 +1,11 @@
 package pairmatching.domain;
 
+<<<<<<< HEAD
 import pairmatching.domain.constants.Level;
 import pairmatching.domain.constants.Position;
 
+=======
+>>>>>>> origin/YoonseolLee
 public class Course {
     private final Level level;
     private final Position position;

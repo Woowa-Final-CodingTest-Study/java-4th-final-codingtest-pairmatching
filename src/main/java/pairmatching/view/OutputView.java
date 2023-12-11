@@ -1,4 +1,5 @@
 package pairmatching.view;
+<<<<<<< HEAD
 import static pairmatching.constants.ProgressMessage.DELETE_MATCHING_RESULT;
 import static pairmatching.constants.ProgressMessage.LINE;
 import static pairmatching.constants.ProgressMessage.PAIR_MATCHING_RESULT;
@@ -27,4 +28,11 @@ public class OutputView {
         printer(DELETE_MATCHING_RESULT.getMessage());
     }
 
+=======
+
+public class OutputView {
+    public static final void printMessage(String message) {
+        System.out.println(message);
+    }
+>>>>>>> origin/YoonseolLee
 }
