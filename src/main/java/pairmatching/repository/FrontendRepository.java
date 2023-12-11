@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FrontendRepository {
-    private List<String> frontend;
+    private List<String> frontendCrew;
 
     public FrontendRepository() {
-        frontend = new ArrayList<>();
+        frontendCrew = new ArrayList<>();
     }
 
-    public void save(List<String> frontend) {
-        this.frontend = frontend;
+    public void save(List<String> frontendCrew) {
+        this.frontendCrew = frontendCrew;
     }
 
-    public List<String> getFrontend() {
-        List<String> shuffle = Randoms.shuffle(frontend);
-        return shuffle;
+    public List<String> getFrontendCrew() {
+        List<String> shuffledFrontendCrew = Randoms.shuffle(frontendCrew);
+        return shuffledFrontendCrew;
     }
 }

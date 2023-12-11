@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackendRepository {
-    private List<String> backend;
+    private List<String> backendCrew;
 
     public BackendRepository() {
-        backend = new ArrayList<>();
+        backendCrew = new ArrayList<>();
     }
 
-    public void save(List<String> backend) {
-        this.backend = backend;
+    public void save(List<String> backendCrew) {
+        this.backendCrew = backendCrew;
     }
 
-    public List<String> getBackend() {
-        List<String> shuffle = Randoms.shuffle(backend);
-        return shuffle;
+    public List<String> getBackendCrew() {
+        List<String> shuffledBackendCrew = Randoms.shuffle(backendCrew);
+        return shuffledBackendCrew;
     }
 }
