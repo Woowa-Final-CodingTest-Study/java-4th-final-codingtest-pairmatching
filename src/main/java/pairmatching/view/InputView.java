@@ -34,13 +34,13 @@ public class InputView {
 
     private static void validateLabelLength(String label) {
         if (label.length() != 1) {
-            throw new IllegalArgumentException("[ERROR] 입력값은 한자리 문자여야합니다.");
+            throw new IllegalArgumentException("[ERROR] 입력값은 한자리 문자여야합니다. 재입력하세요");
         }
     }
 
     private static void validateCourseLevelMission(List<String> data) {
         if (data.size() != 3) {
-            throw new IllegalArgumentException("[ERROR] 과정, 레벨, 미션 세가지 정보를 입력해주세요.");
+            throw new IllegalArgumentException("[ERROR] 과정, 레벨, 미션 세가지 정보를 입력해주세요. 재입력하세요");
         }
     }
 }

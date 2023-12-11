@@ -2,7 +2,7 @@ package pairmatching.view;
 
 public class OutputView {
     public static void requestFunction(String description) {
-        System.out.println("기능을 선택하세요.");
+        System.out.println("\n기능을 선택하세요.");
         System.out.println(description);
     }
 
@@ -16,5 +16,14 @@ public class OutputView {
         System.out.println(courseDescription);
         System.out.println(missionDescription);
         System.out.println("#############################################");
+    }
+
+    public static void printMatchingResult(String result) {
+        System.out.println("\n페어 매칭 결과입니다.");
+        System.out.println(result);
+    }
+
+    public static void printInitialize() {
+        System.out.println("\n초기화 되었습니다.");
     }
 }

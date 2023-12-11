@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Mission {
-    private final Map<Level, List<String>> mission = new HashMap<>();
+    private static final Map<Level, List<String>> mission = new HashMap<>();
 
     Mission() {
         mission.put(Level.LEVEL1, Arrays.asList("자동차경주", "로또", "숫자야구게임"));
@@ -20,7 +20,7 @@ public class Mission {
 
     public static void validateMission(Level level, String name) {
         if (!mission.get(level).contains(name)) {
-            throw new IllegalArgumentException("[ERROR] 존재하지 않는 미션 입니다.");
+            throw new IllegalArgumentException("[ERROR] 존재하지 않는 미션 입니다. 재입력하세요");
         }
     }
 

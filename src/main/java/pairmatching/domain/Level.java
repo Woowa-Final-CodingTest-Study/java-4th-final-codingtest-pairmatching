@@ -19,10 +19,10 @@ public enum Level {
 
     public static Level makeLevel(String name) {
         for (Level level : values()) {
-            if (name.equals(level.name())) {
+            if (name.equals(level.getName())) {
                 return level;
             }
         }
-        throw new IllegalArgumentException("[ERROR] 존재하지 않는 레벨 입니다.");
+        throw new IllegalArgumentException("[ERROR] 존재하지 않는 레벨 입니다. 재입력하세요");
     }
 }

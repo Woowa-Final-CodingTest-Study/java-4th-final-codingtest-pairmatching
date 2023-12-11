@@ -15,11 +15,15 @@ public enum Course {
 
     public static Course makeCourse(String name) {
         for (Course course : values()) {
-            if (name.equals(course.name())) {
+            if (name.equals(course.getName())) {
                 return course;
             }
         }
-        throw new IllegalArgumentException("[ERROR] 존재하지 않는 코스 입니다.");
+        throw new IllegalArgumentException("[ERROR] 존재하지 않는 코스 입니다. 재입력하세요");
+    }
+
+    private String getName() {
+        return name;
     }
 
     public void validateCourseExist(String name) {
