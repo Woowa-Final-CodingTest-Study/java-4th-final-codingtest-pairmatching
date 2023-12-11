@@ -6,18 +6,15 @@ import java.util.Map;
 
 public class PairMatchResult {
 
-    private static PairMatchResult instance = new PairMatchResult();
-    private Map<Selection, Pair> pairMatchResult = new HashMap<>();
-    private Map<Selection, List<String>> pairMatchUser = new HashMap<>();
-
-    public PairMatchResult() {
-    }
+    private static final Map<Selection, Pair> pairMatchResult = new HashMap<>();
+    private static final Map<Selection, List<String>> pairMatchUser = new HashMap<>();
+    private static final PairMatchResult instance = new PairMatchResult();
 
     public static PairMatchResult getInstance() {
-        if(instance == null) {
-            instance = new PairMatchResult();
-        }
         return instance;
+    }
+
+    private PairMatchResult() {
     }
 
     public Pair getPairMatching(Selection selection) {

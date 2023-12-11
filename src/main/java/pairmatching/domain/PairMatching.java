@@ -11,7 +11,7 @@ import pairmatching.view.PairMatchOutputView;
 
 public class PairMatching {
 
-    private static PairMatchResult pairMatchResult = PairMatchResult.getInstance();
+    private static final PairMatchResult pairMatchResult = PairMatchResult.getInstance();
 
     PairMatchOutputView pairMatchOutputView = new PairMatchOutputView();
     ResourceReader resourceReader = new ResourceReader();

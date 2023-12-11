@@ -1,7 +1,6 @@
 package pairmatching.controller;
 
 import java.util.List;
-import java.util.Map;
 import pairmatching.constant.SystemMessage;
 import pairmatching.model.Pair;
 import pairmatching.model.PairMatchResult;
@@ -12,7 +11,7 @@ import pairmatching.view.PairRetrieveOutputView;
 
 public class PairRetrievingController implements Controller{
 
-    private static PairMatchResult pairMatchResult = PairMatchResult.getInstance();
+    private static final PairMatchResult pairMatchResult = PairMatchResult.getInstance();
     OutputView outputView = new OutputView();
     InputView inputView = new InputView();
 
