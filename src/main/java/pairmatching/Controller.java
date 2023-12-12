@@ -1,5 +1,6 @@
 package pairmatching;
 
+import pairmatching.constants.ErrorMessage;
 import pairmatching.constants.GameConstants;
 import pairmatching.constants.GameMessage;
 import pairmatching.domain.Course;
@@ -27,6 +28,12 @@ public class Controller {
             }
             if (choice.equals(GameConstants.PAIR_MATCHING.getConstName())) {
                 pairMatching();
+            }
+            if (choice.equals(GameConstants.PAIR_SEARCH.getConstName())) {
+                showMatchingHistory();
+            }
+            if (choice.equals(GameConstants.PAIR_RESET.getConstName())) {
+
             }
         }
     }
@@ -125,5 +132,24 @@ public class Controller {
         }
     }
 
+    private void showMatchingHistory() {
+        Course course = InputCourse();
+        boolean matchingHistoryByCourse = matchingService.findMatchingHistoryByCourse(course);
 
+        try {
+            if (matchingHistoryByCourse) {
+                OutputView.printMatchingResult(matchingService.pairMatchingResult(course));
+            }
+            if (!matchingHistoryByCourse) {
+                throw new IllegalArgumentException(ErrorMessage.NO_MATCHING_ERROR.getMessage());
+            }
+        } catch (IllegalArgumentException e) {
+            OutputView.printMessage(e.getMessage());
+        }
+    }
+
+//    private void clearMatchingHistory() {
+//        matchingService.clearMatchingHistory();
+//        OutputView.printMatchingHistory();
+//    }
 }
