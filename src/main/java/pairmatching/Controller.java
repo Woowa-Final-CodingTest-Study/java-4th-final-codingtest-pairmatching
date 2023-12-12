@@ -1,6 +1,8 @@
 package pairmatching;
 
+import pairmatching.constants.GameConstants;
 import pairmatching.constants.GameMessage;
+import pairmatching.domain.Course;
 import pairmatching.service.MatchingService;
 import pairmatching.validator.InputChoiceValidator;
 import pairmatching.view.InputView;
@@ -15,7 +17,16 @@ public class Controller {
 
     public void run() {
         matchingService.enrollCrews();
-        String input = inputChoice();
+        String choice = inputChoice();
+
+        while (true) {
+            if (choice.equals(GameConstants.QUIT.getConstName())) {
+                break;
+            }
+            if (choice.equals(GameConstants.PAIR_MATCHING.getConstName())) {
+                pairMatching();
+            }
+        }
     }
 
     private String inputChoice() {
@@ -33,5 +44,37 @@ public class Controller {
         OutputView.printMessage(GameMessage.START_CHOICE.getMessage());
         String functionInput = InputView.receiveInput();
         return functionInput;
+    }
+
+    public void pairMatching() {
+        Course course = InputCourse();
+        chooseCourse(course);
+    }
+
+    private Course InputCourse() {
+        while (true) {
+            try {
+                OutputView.printMessage(GameMessage.COURSE_INFORMATION.getMessage());
+                OutputView.printMessage(GameMessage.COURSE_CHOICE.getMessage());
+                String courseInput = InputView.receiveInput();
+            } catch (IllegalArgumentException e) {
+                OutputView.printMessage(e.getMessage());
+            }
+        }
+    }
+
+    private void chooseCourse(Course course) {
+        boolean matchingHistoryByCourse = matchingService.findMatchingHistoryByCourse(course);
+        try {
+            if (!matchingHistoryByCourse) {
+                matchingService.pairMatching(course);
+            }
+
+            if (matchingHistoryByCourse) {
+
+            }
+        } catch (IllegalArgumentException e) {
+            OutputView.printMessage(e.getMessage());
+        }
     }
 }
