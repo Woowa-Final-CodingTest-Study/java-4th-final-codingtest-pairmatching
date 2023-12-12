@@ -26,8 +26,10 @@ public class PairMatching {
         List<String> shuffledStudents = Randoms.shuffle(students);
 
         Pair pair = Pair.match(shuffledStudents);
+
         outputView.print(SystemMessage.PAIR_MATCHING_RESULT);
         pairMatchOutputView.printPairMatch(pair, shuffledStudents);
+
         pairMatchResult.savePairMatch(selection, pair);
         pairMatchResult.savePairMatchUser(selection, shuffledStudents);
     }
