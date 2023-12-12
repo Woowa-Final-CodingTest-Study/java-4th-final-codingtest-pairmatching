@@ -63,6 +63,7 @@ public class Controller {
     private Course InputCourse() {
         while (true) {
             try {
+                System.out.println();
                 OutputView.printMessage(GameMessage.COURSE_INFORMATION.getMessage());
                 OutputView.printMessage(GameMessage.COURSE_CHOICE.getMessage());
                 String courseInput = InputView.receiveInput();

@@ -3,6 +3,7 @@ package pairmatching.service;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import java.util.ArrayList;
 import java.util.List;
+import pairmatching.constants.ErrorMessage;
 import pairmatching.constants.FilePath;
 import pairmatching.domain.Course;
 import pairmatching.domain.MatchingHistory;
@@ -59,7 +60,7 @@ public class MatchingService {
         int count = ZERO;
         do {
             if ((count++) == MAX_MATCHING_COUNT) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(ErrorMessage.MATCHING_ERROR.getMessage());
             }
             pairs.clear();
             List<String> backendCrew = backendRepository.getBackendCrew();
@@ -73,11 +74,10 @@ public class MatchingService {
         int count = ZERO;
         do {
             if ((count++) == MAX_MATCHING_COUNT) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(ErrorMessage.MATCHING_ERROR.getMessage());
             }
             pairs.clear();
             List<String> frontendCrew = frontendRepository.getFrontendCrew();
-            ;
             pairs = matching(frontendCrew);
         } while (isMatched(course, pairs));
         matchingHistoryRepository.save(new MatchingHistory(course, pairs));
