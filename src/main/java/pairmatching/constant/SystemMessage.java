@@ -20,10 +20,10 @@ public class SystemMessage {
 
     public static final String SELECT_ON_BOARD = "과정, 레벨, 미션을 선택하세요.\n"
             + "ex) 백엔드, 레벨1, 자동차경주";
-
-    public static final String ASK_MATCH_AGAIN = "매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n"
+    public static final String PAIR_MATCHING_RESULT = "\n페어 매칭 결과입니다.";
+    public static final String ASK_MATCH_AGAIN = "\n매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n"
             + "네 | 아니오";
-
+    public static final String COMPLETE_INITIALIZE = "초기화 되었습니다.";
     public static final String YES = "네";
     public static final String NO = "아니오";
 }

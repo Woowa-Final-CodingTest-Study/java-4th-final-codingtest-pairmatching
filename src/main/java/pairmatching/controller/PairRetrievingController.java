@@ -24,6 +24,7 @@ public class PairRetrievingController implements Controller{
         Selection selection = new Selection(userSelect);
 
         printPairRetrieving(selection);
+        outputView.print(SystemMessage.COMPLETE_INITIALIZE);
     }
 
     public void printPairRetrieving(Selection selection) {
