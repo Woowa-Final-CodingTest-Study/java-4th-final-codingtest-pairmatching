@@ -1,7 +1,11 @@
 package pairmatching;
 
+import pairmatching.service.MatchingService;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO 구현 진행
+        MatchingService matchingService = new MatchingService();
+        Controller controller = new Controller(matchingService);
+        controller.run();
     }
 }
