@@ -31,7 +31,27 @@ public class InputValidation {
         return input;
     }
 
-    public List<String> validateSelection(List<String> selection) {
+    private void validateNull(String input) {
+        if (input.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_NULL);
+        }
+    }
+
+    private void validateOption(String input) {
+        if (!MenuOption.isOption(input)) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_OPTION_VALUE);
+        }
+    }
+
+    private String validateSeparator(String input) {
+        String deleteCharacters = input.replaceAll("[0-9a-zA-Zㄱ-ㅎ가-힣,]", "").replaceAll(" ", "");
+        if (!deleteCharacters.isEmpty()) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_CORRECT_SEPARATOR);
+        }
+        return input;
+    }
+
+    private List<String> validateSelection(List<String> selection) {
         validateCourse(selection.get(0));
         validateLevel(selection.get(1));
         validateMission(selection.get(2));
@@ -39,45 +59,25 @@ public class InputValidation {
         return selection;
     }
 
-    public void validateNull(String input) {
-        if (input.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_NULL);
-        }
-    }
-
-    public void validateOption(String input) {
-        if (!MenuOption.isOption(input)) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_OPTION_VALUE);
-        }
-    }
-
-    public String validateSeparator(String input) {
-        String deleteCharacters = input.replaceAll("[0-9a-zA-Zㄱ-ㅎ가-힣,]", "");
-        if (!deleteCharacters.isEmpty()) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_CORRECT_SEPARATOR);
-        }
-        return input;
-    }
-
-    public void validateCourse(String input) {
+    private void validateCourse(String input) {
         if (!Course.isCourse(input)) {
             throw new IllegalArgumentException(String.format(ErrorMessage.COURSE_NOT_CONTAIN, input));
         }
     }
 
-    public void validateLevel(String input) {
+    private void validateLevel(String input) {
         if (!Mission.isLevel(input)) {
             throw new IllegalArgumentException(String.format(ErrorMessage.LEVEL_NOT_CONTAIN, input));
         }
     }
 
-    public void validateMission(String input) {
+    private void validateMission(String input) {
         if (!Mission.isMission(input)) {
             throw new IllegalArgumentException(String.format(ErrorMessage.MISSION_NOT_CONTAIN, input));
         }
     }
 
-    public void validateOnlyYesOrNo(String input) {
+    private void validateOnlyYesOrNo(String input) {
         if(!input.equals(SystemMessage.YES) && !input.equals(SystemMessage.NO)) {
             throw  new IllegalArgumentException(ErrorMessage.INPUT_YES_OR_NO);
         }

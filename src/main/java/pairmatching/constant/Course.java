@@ -18,10 +18,6 @@ public enum Course {
         return course;
     }
 
-    public String getPath() {
-        return path;
-    }
-
     public static boolean isCourse(String input) {
         return Arrays.stream(Course.values())
                 .anyMatch(course -> input.equals(course.getCourse()));
