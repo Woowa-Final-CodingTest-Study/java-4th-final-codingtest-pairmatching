@@ -62,8 +62,9 @@ public class Mission {
                 && this.missionName.equals(missionName);
     }
 
-    public void matchPairs(List<Crew> crews) {
-        result = new MatchResult(level, crews);
+    public List<String> matchPairs() {
+        result = new MatchResult(level, course);
+        return result.toStrings();
     }
 
     public boolean isAlreadyMatched() {

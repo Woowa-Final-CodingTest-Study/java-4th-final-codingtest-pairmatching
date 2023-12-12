@@ -27,9 +27,20 @@ public class MatchingController {
     }
 
     public void start() {
-        WorkType workType = getWorkType();
-        if (workType.equals(WorkType.MATCH)) {
-            match();
+        while(true) {
+            WorkType workType = getWorkType();
+            if (workType.equals(WorkType.MATCH)) {
+                match();
+            }
+            if(workType.equals(WorkType.RETRIEVE)) {
+
+            }
+            if(workType.equals(WorkType.RESET)) {
+
+            }
+            if(workType.equals(WorkType.QUIT)) {
+                break;
+            }
         }
     }
 
@@ -46,7 +57,7 @@ public class MatchingController {
                 return;
             }
         }
-        List<Crew> crews = Crew.getListOf(mission.course);
-        mission.matchPairs(crews);
+        List<String> matchPairs = mission.matchPairs();
+        outputView.printMatchPairs(matchPairs);
     }
 }

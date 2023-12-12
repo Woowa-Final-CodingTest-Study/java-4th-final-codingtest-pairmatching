@@ -66,13 +66,19 @@ public class InputView {
     }
 
     public boolean readMatchAgain() {
-        String input = Console.readLine();
-        if (input.equals(Literal.YES)) {
-            return true;
+        while (true) {
+            try {
+                String input = Console.readLine();
+                if (input.equals(Literal.YES)) {
+                    return true;
+                }
+                if (input.equals(Literal.NO)) {
+                    return false;
+                }
+                throw new IllegalArgumentException(ErrorMessage.INPUT_MATCH_AGAIN_INVALID);
+            } catch (IllegalArgumentException e) {
+                printError(e);
+            }
         }
-        if (input.equals(Literal.NO)) {
-            return false;
-        }
-        throw new IllegalArgumentException(ErrorMessage.INPUT_MATCH_AGAIN_INVALID);
     }
 }

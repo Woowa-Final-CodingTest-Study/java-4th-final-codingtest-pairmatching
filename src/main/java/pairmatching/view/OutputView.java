@@ -2,6 +2,7 @@ package pairmatching.view;
 
 import static pairmatching.constant.Literal.MISSION;
 
+import java.util.List;
 import pairmatching.constant.Course;
 import pairmatching.constant.Level;
 import pairmatching.constant.OutputMessage;
@@ -53,5 +54,10 @@ public class OutputView {
     private void printf(String message, String... args) {
         System.out.printf(message, args);
         println();
+    }
+
+    public void printMatchPairs(List<String> matchPairs) {
+        matchPairs.stream()
+                .forEach(this::println);
     }
 }
