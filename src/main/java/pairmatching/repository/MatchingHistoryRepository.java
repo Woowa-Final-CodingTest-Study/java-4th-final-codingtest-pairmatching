@@ -35,5 +35,10 @@ public class MatchingHistoryRepository {
         matchingHistories.add(matchingHistory);
     }
 
+    public void deleteMatchingHistory(Course course) {
+        MatchingHistory matchingHistoryByCourse = findMatchingHistoryByCourse(course);
+        matchingHistories.remove(matchingHistoryByCourse);
+    }
+
 
 }

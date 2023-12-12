@@ -1,5 +1,6 @@
 package pairmatching.service;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import java.util.ArrayList;
 import java.util.List;
 import pairmatching.constants.FilePath;
@@ -126,5 +127,15 @@ public class MatchingService {
             }
         }
         return count == MIN_PAIR_COUNT || count == MAX_PAIR_COUNT;
+    }
+
+    public void updatePairMatching(Course course) {
+        matchingHistoryRepository.deleteMatchingHistory(course);
+        pairMatching(course);
+    }
+
+    public List<Pair> pairMatchingResult(Course course) {
+        MatchingHistory matchingHistoryByCourse = matchingHistoryRepository.findMatchingHistoryByCourse(course);
+        return matchingHistoryByCourse.getPair();
     }
 }

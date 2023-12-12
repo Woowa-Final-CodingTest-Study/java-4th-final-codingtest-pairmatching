@@ -15,8 +15,12 @@ public enum GameMessage {
     ),
     COURSE_CHOICE("과정, 레벨, 미션을 선택하세요.\n"
             + "ex) 백엔드, 레벨1, 자동차경주\n"
-            + "프론트엔드, 레벨1, 자동차경주"
-    );
+            + "프론트엔드, 레벨1, 자동차경주\n"
+    ),
+    RETRY_COURSE_CHECK("\n매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n"
+            + "네 | 아니오"),
+    PAIR_MATCHING_RESULT("\n페어 매칭 결과입니다."),
+    DELETE_MATCHING_RESULT("\n초기화 되었습니다.\n");
 
     private final String message;
 

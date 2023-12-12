@@ -3,17 +3,19 @@ package pairmatching.validator;
 import static pairmatching.constants.ErrorMessage.INVALID_LEVEL_MISSION_ERROR;
 import static pairmatching.constants.ErrorMessage.INVALID_MISSION_ERROR;
 
+import pairmatching.constants.ErrorMessage;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
 import pairmatching.domain.Position;
 
 public class InputCourseValidator {
+
     public static Course validateInputCourse(String courseInput) {
         validateEmpty(courseInput);
         String[] parts = courseInput.split(", ");
 
         if (parts.length != 3) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(ErrorMessage.INPUT_COURSE_ERROR.getMessage());
         }
 
         Position position = validatePosition(parts[0]);
@@ -43,7 +45,7 @@ public class InputCourseValidator {
                 return level;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(ErrorMessage.INVALID_LEVEL_ERROR.getMessage());
     }
 
     private static String validateMission(Level level, String part) {
