@@ -16,7 +16,6 @@ public class PairMatching {
     PairMatchOutputView pairMatchOutputView = new PairMatchOutputView();
     ResourceReader resourceReader = new ResourceReader();
 
-
     public void pairMatching(Selection selection) {
         String path = Course.getPath(selection.getCourse());
 
@@ -28,4 +27,5 @@ public class PairMatching {
         pairMatchResult.savePairMatch(selection, pair);
         pairMatchResult.savePairMatchUser(selection, shuffledStudents);
     }
+
 }

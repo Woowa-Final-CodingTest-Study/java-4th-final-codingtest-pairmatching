@@ -6,6 +6,7 @@ import pairmatching.constant.Course;
 import pairmatching.constant.ErrorMessage;
 import pairmatching.constant.MenuOption;
 import pairmatching.constant.Mission;
+import pairmatching.constant.SystemMessage;
 
 public class InputValidation {
 
@@ -21,6 +22,13 @@ public class InputValidation {
         List<String> selection = removeBlankInput(select);
 
         return validateSelection(selection);
+    }
+
+    public String validateInputYesOrNo(String input) {
+        validateNull(input);
+        validateOnlyYesOrNo(input);
+
+        return input;
     }
 
     public List<String> validateSelection(List<String> selection) {
@@ -66,6 +74,12 @@ public class InputValidation {
     public void validateMission(String input) {
         if (!Mission.isMission(input)) {
             throw new IllegalArgumentException(String.format(ErrorMessage.MISSION_NOT_CONTAIN, input));
+        }
+    }
+
+    public void validateOnlyYesOrNo(String input) {
+        if(!input.equals(SystemMessage.YES) && !input.equals(SystemMessage.NO)) {
+            throw  new IllegalArgumentException(ErrorMessage.INPUT_YES_OR_NO);
         }
     }
 

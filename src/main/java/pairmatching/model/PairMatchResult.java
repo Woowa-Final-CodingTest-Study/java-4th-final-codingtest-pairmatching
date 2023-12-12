@@ -21,6 +21,10 @@ public class PairMatchResult {
         return pairMatchResult.get(selection);
     }
 
+    public boolean isPairMatching(Selection selection) {
+        return pairMatchResult.get(selection) != null;
+    }
+
     public List<String> getPairMatchUser(Selection selection) {
         return pairMatchUser.get(selection);
     }

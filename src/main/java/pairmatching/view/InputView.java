@@ -19,4 +19,10 @@ public class InputView {
 
         return inputValidation.validateInputSelection(input);
     }
+
+    public String inputYesOrNo() {
+        String input = Console.readLine();
+
+        return inputValidation.validateInputYesOrNo(input);
+    }
 }

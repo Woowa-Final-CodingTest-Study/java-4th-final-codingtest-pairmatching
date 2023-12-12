@@ -8,4 +8,5 @@ public class ErrorMessage {
     public static final String COURSE_NOT_CONTAIN = PREFIX + "%s는 코스에 포함되지 않습니다.";
     public static final String LEVEL_NOT_CONTAIN = PREFIX + "%s 레벨은 존재하지 않습니다.";
     public static final String MISSION_NOT_CONTAIN = PREFIX + "%s 미션은 존재하지 않습니다.";
+    public static final String INPUT_YES_OR_NO = PREFIX + "네/아니오로 입력해주세요.";
 }

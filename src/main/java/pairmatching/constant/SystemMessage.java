@@ -23,4 +23,7 @@ public class SystemMessage {
 
     public static final String ASK_MATCH_AGAIN = "매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n"
             + "네 | 아니오";
+
+    public static final String YES = "네";
+    public static final String NO = "아니오";
 }
