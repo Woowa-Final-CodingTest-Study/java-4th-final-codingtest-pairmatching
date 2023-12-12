@@ -138,4 +138,8 @@ public class MatchingService {
         MatchingHistory matchingHistoryByCourse = matchingHistoryRepository.findMatchingHistoryByCourse(course);
         return matchingHistoryByCourse.getPair();
     }
+
+    public void clearMatchingHistory() {
+        matchingHistoryRepository.clearMatchingHistory();
+    }
 }

@@ -33,7 +33,7 @@ public class Controller {
                 showMatchingHistory();
             }
             if (choice.equals(GameConstants.PAIR_RESET.getConstName())) {
-
+                clearMatchingHistory();
             }
         }
     }
@@ -148,8 +148,8 @@ public class Controller {
         }
     }
 
-//    private void clearMatchingHistory() {
-//        matchingService.clearMatchingHistory();
-//        OutputView.printMatchingHistory();
-//    }
+    private void clearMatchingHistory() {
+        matchingService.clearMatchingHistory();
+        OutputView.printMessage(GameMessage.DELETE_MATCHING_RESULT.getMessage());
+    }
 }

@@ -14,9 +14,10 @@ public class MatchingHistoryRepository {
     public MatchingHistory findMatchingHistoryByCourse(Course course) {
         for (MatchingHistory matchingHistory : matchingHistories) {
             if (matchingHistory.getCourse().getLevel().equals(course.getLevel())
-                && matchingHistory.getCourse().getPosition().equals(course.getPosition())
-                && matchingHistory.getCourse().getMission().equals(course.getMission()))
+                    && matchingHistory.getCourse().getPosition().equals(course.getPosition())
+                    && matchingHistory.getCourse().getMission().equals(course.getMission())) {
                 return matchingHistory;
+            }
         }
         return null;
     }
@@ -40,5 +41,7 @@ public class MatchingHistoryRepository {
         matchingHistories.remove(matchingHistoryByCourse);
     }
 
-
+    public void clearMatchingHistory() {
+        matchingHistories.clear();
+    }
 }
